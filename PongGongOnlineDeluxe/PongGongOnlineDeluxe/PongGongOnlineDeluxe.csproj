@@ -42,7 +42,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject />
+    <StartupObject>PongGongOnlineDeluxe.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Ball.cs" />
