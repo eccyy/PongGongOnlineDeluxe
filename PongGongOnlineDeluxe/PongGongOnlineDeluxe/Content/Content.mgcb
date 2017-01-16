@@ -25,12 +25,6 @@
 /processorParam:TextureFormat=Color
 /build:ball.png
 
-#begin font.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/processorParam:TextureFormat=Compressed
-/build:font.spritefont
-
 #begin paddle.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -42,4 +36,10 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:paddle.png
+
+#begin font.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:TextureFormat=Compressed
+/build:font.spritefont
 
