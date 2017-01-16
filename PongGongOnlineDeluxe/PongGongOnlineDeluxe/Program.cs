@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Windows.Forms;
+using System;
 
 namespace PongGongOnlineDeluxe
 {
@@ -14,8 +15,7 @@ namespace PongGongOnlineDeluxe
         [STAThread]
         static void Main()
         {
-            using (var game = new Game1())
-                game.Run();
+            Application.Run(new Startmenu());
         }
     }
 #endif

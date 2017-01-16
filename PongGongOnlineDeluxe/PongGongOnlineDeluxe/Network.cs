@@ -34,45 +34,62 @@ namespace PongGongOnlineDeluxe
         {
             // serverIdentifier som argument är som en sorts identifier så att man vet att spelarna kopplar upp rätt. Båda klienterna måste använda samma identifier
 
-
             netconfig = new NetPeerConfiguration(serverIdentifier);
             netconfig.Port = 1337;
             netconfig.EnableMessageType(NetIncomingMessageType.Data);
 
-            server = new NetServer(netconfig);
+
+            client = new NetClient(netconfig);
+            client.Start();
+                       
         }
 
-        bool startServer()
+
+
+        public bool startServer()
         {
-            server = new NetServer(netconfig);
-            server.Start();
+            try
+            {
+                server = new NetServer(netconfig);
+                server.Start();
 
+                return true;
 
-            return false;
+            }
+            catch(Exception e)
+            {
+                return false;
+            }           
+            
         }
 
         bool closeServer()
         {
             return false;
         }
-
-        bool startClient()
-        {
-            client = new NetClient(netconfig);
-            client.Start();
-
-            return false;
-        }
+      
 
         bool stopClient()
         {
             return false;
         }
 
-        bool connectServer(){
-            client.Connect(host: hostIp, port: 1337);
+      public bool connectServer(string hostIp){
 
-            return false;
+            try
+            {
+                client.Connect(host: hostIp, port: 1337);
+                return true;
+
+            }
+            catch(Exception e)
+            {
+
+                return false;
+            }
+
+
+           
         }
 
 
