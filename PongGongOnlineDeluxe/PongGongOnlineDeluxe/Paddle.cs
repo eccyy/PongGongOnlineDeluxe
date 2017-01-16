@@ -9,35 +9,28 @@ using Microsoft.Xna.Framework.Input;
 
 namespace PongGongOnlineDeluxe
 {
-    class Ball
+    class Paddle
     {
         public Texture2D sprite;
         public Rectangle hitbox;
         public Vector2 position;
         public int width, height;
+        public string player;
         public float speed;
-        public Vector2 velocity;
-        public Vector2 startVelocity;
 
-        public void BallConstructor(Texture2D spr, Vector2 pos, int w, int h, float sp, Vector2 stVel)
+        public void PaddleConstructor(Texture2D spr, Vector2 pos, int w, int h, float sp, string ply)
         {
             this.sprite = spr;
             this.position = pos;
             this.width = w;
             this.height = h;
             this.speed = sp;
-            this.startVelocity = stVel;
-            this.velocity = startVelocity;
+            this.player = ply;
         }
 
         public void Update()
         {
-            if(position.Y < 0 || position.Y > 500-height)
-            {
-                velocity.Y *= -1;
-            }
-            hitbox = new Rectangle((int)position.X,(int)position.Y,width,height);
-            position += velocity;
+            hitbox = new Rectangle((int)position.X, (int)position.Y, width, height);
         }
     }
 }
