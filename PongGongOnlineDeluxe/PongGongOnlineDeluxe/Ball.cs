@@ -13,7 +13,7 @@ namespace PongGongOnlineDeluxe
     {
         public Texture2D sprite;
         public Rectangle hitbox;
-        public Vector2 position;
+        public Vector2 position, startPosition;
         public int width, height;
         public float speed;
         public Vector2 velocity;
@@ -23,6 +23,7 @@ namespace PongGongOnlineDeluxe
         {
             this.sprite = spr;
             this.position = pos;
+            this.startPosition = position;
             this.width = w;
             this.height = h;
             this.speed = sp;
@@ -37,6 +38,8 @@ namespace PongGongOnlineDeluxe
                 velocity.Y *= -1;
             }
             hitbox = new Rectangle((int)position.X,(int)position.Y,width,height);
+            velocity.Normalize();
+            velocity *= speed;
             position += velocity;
         }
     }
