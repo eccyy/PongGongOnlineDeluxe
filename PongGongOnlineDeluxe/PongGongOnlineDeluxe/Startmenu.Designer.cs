@@ -36,6 +36,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.tbxStartTetris = new System.Windows.Forms.Button();
+            this.btnSendMessage = new System.Windows.Forms.Button();
+            this.lbxRecievedMessages = new System.Windows.Forms.ListBox();
+            this.tbxSendMessage = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnServerHost
@@ -109,11 +112,39 @@
             this.tbxStartTetris.UseVisualStyleBackColor = true;
             this.tbxStartTetris.Click += new System.EventHandler(this.tbxStartTetris_Click);
             // 
+            // btnSendMessage
+            // 
+            this.btnSendMessage.Location = new System.Drawing.Point(389, 147);
+            this.btnSendMessage.Name = "btnSendMessage";
+            this.btnSendMessage.Size = new System.Drawing.Size(75, 23);
+            this.btnSendMessage.TabIndex = 11;
+            this.btnSendMessage.Text = "skicka";
+            this.btnSendMessage.UseVisualStyleBackColor = true;
+            this.btnSendMessage.Click += new System.EventHandler(this.btnSendMessage_Click);
+            // 
+            // lbxRecievedMessages
+            // 
+            this.lbxRecievedMessages.FormattingEnabled = true;
+            this.lbxRecievedMessages.Location = new System.Drawing.Point(398, 251);
+            this.lbxRecievedMessages.Name = "lbxRecievedMessages";
+            this.lbxRecievedMessages.Size = new System.Drawing.Size(120, 95);
+            this.lbxRecievedMessages.TabIndex = 12;
+            // 
+            // tbxSendMessage
+            // 
+            this.tbxSendMessage.Location = new System.Drawing.Point(470, 149);
+            this.tbxSendMessage.Name = "tbxSendMessage";
+            this.tbxSendMessage.Size = new System.Drawing.Size(100, 20);
+            this.tbxSendMessage.TabIndex = 13;
+            // 
             // Startmenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(611, 412);
+            this.Controls.Add(this.tbxSendMessage);
+            this.Controls.Add(this.lbxRecievedMessages);
+            this.Controls.Add(this.btnSendMessage);
             this.Controls.Add(this.tbxStartTetris);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
@@ -139,5 +170,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button tbxStartTetris;
+        private System.Windows.Forms.Button btnSendMessage;
+        private System.Windows.Forms.ListBox lbxRecievedMessages;
+        private System.Windows.Forms.TextBox tbxSendMessage;
     }
 }

@@ -24,11 +24,14 @@ NetPeerConfiguration netconfig;
         NetServer server;
         NetClient client;
 
-        NetIncomingMessage msgRecieve;
-        NetOutgoingMessage msgSend;
+        public string text;
+
+    
 
         
         string hostIp;
+
+       public object data;
 
 
 
@@ -39,6 +42,7 @@ NetPeerConfiguration netconfig;
             netconfig = new NetPeerConfiguration(serverIdentifier);
             netconfig.Port = 1337;
             netconfig.EnableMessageType(NetIncomingMessageType.Data);
+            
 
 
             client = new NetClient(netconfig);
@@ -81,6 +85,7 @@ NetPeerConfiguration netconfig;
 
             try
             {
+                
                 client.Connect(host: hostIp, port: 1337);
                 return true;
 
@@ -96,9 +101,15 @@ NetPeerConfiguration netconfig;
         }
 
 
-        bool sendString(string message)
+      public void sendString(string message)
         {
-            return false;
+            var messageToSend = client.CreateMessage();
+
+            messageToSend.Write(message);
+            
+            client.SendMessage(messageToSend, NetDeliveryMethod.ReliableOrdered);
+            
+            
         }
 
 
@@ -116,7 +127,10 @@ NetPeerConfiguration netconfig;
                         // här ska datan tas emot och delas ut till de programm som behöver datan /Kallade datan.
                         // ska ta emot alla datatyper och returnera sedan
 
-                   //     var data = message.ReadAllFields();
+
+
+                       text = message.ReadString();
+                       
                         break;
 
                     case NetIncomingMessageType.StatusChanged:

@@ -28,7 +28,7 @@ namespace PongGongOnlineDeluxe
                 {
                     network = new Network(tbxServerName.Text);
                     network.startServer();
-                    network.connectServer("127.0.0.1");
+                   
                     MessageBox.Show("success");
                 }
                 catch(Exception connectException)
@@ -46,9 +46,9 @@ namespace PongGongOnlineDeluxe
         {
             if (tbxIpAdress.Text.Length > 6)
             {
-                network = new Network(tbxServerName.Text);
 
-              if( network.connectServer(tbxIpAdress.Text.ToString()) == true)
+                network = new Network(tbxServerName.Text);
+                if ( network.connectServer(tbxIpAdress.Text.ToString()) == true)
                 {
                     MessageBox.Show("success connected");
                 }
@@ -68,6 +68,17 @@ namespace PongGongOnlineDeluxe
         {
             Game1 tetris = new Game1();
             tetris.Run();
+        }
+
+        private void btnSendMessage_Click(object sender, EventArgs e)
+        {
+            network.sendString("dadido");
+            while(network.text == null)
+            {
+
+            }
+            MessageBox.Show("message is " + network.text);
+
         }
     }
 }
