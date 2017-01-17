@@ -40,6 +40,7 @@ namespace PongGongOnlineDeluxe
 
 
             client = new NetClient(netconfig);
+            // lägga till exception hantering
             client.Start();
                        
         }

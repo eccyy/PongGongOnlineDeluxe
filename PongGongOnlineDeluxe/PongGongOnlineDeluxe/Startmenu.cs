@@ -63,5 +63,11 @@ namespace PongGongOnlineDeluxe
         {
             join();
         }
+
+        private void tbxStartTetris_Click(object sender, EventArgs e)
+        {
+            Game1 tetris = new Game1();
+            tetris.Run();
+        }
     }
 }
