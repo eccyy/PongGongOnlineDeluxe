@@ -15,10 +15,11 @@ namespace PongGongOnlineDeluxe
 
     class Network
     {
+       
 
 
 
-        NetPeerConfiguration netconfig;
+NetPeerConfiguration netconfig;
         
         NetServer server;
         NetClient client;
@@ -26,6 +27,7 @@ namespace PongGongOnlineDeluxe
         NetIncomingMessage msgRecieve;
         NetOutgoingMessage msgSend;
 
+        
         string hostIp;
 
 
@@ -97,6 +99,49 @@ namespace PongGongOnlineDeluxe
         bool sendString(string message)
         {
             return false;
+        }
+
+
+        // SKRIV DET SJÄLV SEDAN
+        private void messageLoop()
+        {
+           NetIncomingMessage message;
+            
+            while ((message = server.ReadMessage()) != null)
+            {
+                switch (message.MessageType)
+                {
+                    case NetIncomingMessageType.Data:
+                        // handle custom messages
+                        // här ska datan tas emot och delas ut till de programm som behöver datan /Kallade datan.
+                        // ska ta emot alla datatyper och returnera sedan
+
+                   //     var data = message.ReadAllFields();
+                        break;
+
+                    case NetIncomingMessageType.StatusChanged:
+                        // handle connection status messages
+                        switch (message.SenderConnection.Status)
+                        {
+                            /* .. */
+                        }
+                        break;
+
+                    case NetIncomingMessageType.DebugMessage:
+                        // handle debug messages
+                        // (only received when compiled in DEBUG mode)
+                        Console.WriteLine(message.ReadString());
+                        break;
+
+                    /* .. */
+                    default:
+                        Console.WriteLine("unhandled message with type: "
+                            + message.MessageType);
+                        break;
+                }
+
+                
+            }
         }
 
            
