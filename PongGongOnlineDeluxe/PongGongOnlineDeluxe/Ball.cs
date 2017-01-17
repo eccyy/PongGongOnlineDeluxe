@@ -15,7 +15,8 @@ namespace PongGongOnlineDeluxe
         public Rectangle hitbox;
         public Vector2 position, startPosition;
         public int width, height;
-        public float speed;
+        public float speed, startSpeed;
+        public float lastHit;
         public Vector2 velocity;
         public Vector2 startVelocity;
 
@@ -27,6 +28,7 @@ namespace PongGongOnlineDeluxe
             this.width = w;
             this.height = h;
             this.speed = sp;
+            this.startSpeed = speed;
             this.startVelocity = stVel;
             this.velocity = startVelocity;
         }

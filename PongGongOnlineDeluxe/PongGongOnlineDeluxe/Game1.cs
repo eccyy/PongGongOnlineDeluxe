@@ -57,6 +57,7 @@ namespace PongGongOnlineDeluxe
         
         protected override void Update(GameTime gameTime)
         {
+            ball.lastHit += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             KeyboardState pressedKeys = Keyboard.GetState();
             #region Player movement
             if(pressedKeys.IsKeyDown(Keys.Up))
@@ -97,24 +98,32 @@ namespace PongGongOnlineDeluxe
                 }
             }
             #endregion
-            if(ball.hitbox.Intersects(paddle1.hitbox) && ball.velocity.X < 0)
+            if(ball.hitbox.Intersects(paddle1.hitbox) && ball.velocity.X < 0 && ball.lastHit > 100)
             {
-                ball.velocity = Hit(ball.position, ball.width,ball.height,paddle1.position,paddle1.width,paddle1.height);
+                ball.speed += 0.1f;
+                ball.lastHit = 0;
+                ball.velocity.X *= -1;
+                //ball.velocity = Hit(ball.position, ball.width,ball.height,paddle1.position,paddle1.width,paddle1.height);
             }
 
-            if (ball.hitbox.Intersects(paddle2.hitbox) && ball.velocity.X > 0)
+            if (ball.hitbox.Intersects(paddle2.hitbox) && ball.velocity.X > 0 && ball.lastHit > 100)
             {
-                ball.velocity = Hit(ball.position, ball.width, ball.height, paddle2.position, paddle2.width, paddle2.height);
+                ball.speed += 0.1f;
+                ball.lastHit = 0;
+                ball.velocity.X *= -1;
+                //ball.velocity = Hit(ball.position, ball.width, ball.height, paddle2.position, paddle2.width, paddle2.height);
             }
 
                 if (ball.position.X <= 0)
             {
+                ball.speed = ball.startSpeed;
                 ball.position = ball.startPosition;
                 ball.velocity = RandomizeDirection(rng.Next(1, 5));
                 paddle2Score++;
             }
             else if(ball.position.X >= 500-ball.width)
             {
+                ball.speed = ball.startSpeed;
                 ball.position = ball.startPosition;
                 ball.velocity = RandomizeDirection(rng.Next(1, 5));
                 paddle1Score++;
