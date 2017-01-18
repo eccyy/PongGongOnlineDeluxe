@@ -73,9 +73,9 @@ namespace PongGongOnlineDeluxe
         private void btnSendMessage_Click(object sender, EventArgs e)
         {
             network.sendString("dadido");
-            while(network.text == null)
+            while (network.text == null)
             {
-
+               
             }
             MessageBox.Show("message is " + network.text);
 
