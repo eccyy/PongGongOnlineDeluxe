@@ -46,7 +46,7 @@ namespace PongGongOnlineDeluxe
             font = Content.Load<SpriteFont>("font");
             ball.BallConstructor(sprBall, new Vector2(250, 250), 25, 25, 4, RandomizeDirection(rng.Next(1,5)));
             paddle1.PaddleConstructor(sprPaddle, new Vector2(20, 150), 10, 100, 5, "Player 1");
-            paddle2.PaddleConstructor(sprPaddle, new Vector2(470, 150), 10, 100, 5, "Player 1");
+            paddle2.PaddleConstructor(sprPaddle, new Vector2(470, 150), 10, 100, 5, "AI");
         }
 
 
@@ -98,9 +98,17 @@ namespace PongGongOnlineDeluxe
                 }
             }
             #endregion
+            if(paddle1.player == "AI")
+            {
+                paddle1.position.Y = ball.position.Y - ball.height;
+            }
+            if(paddle2.player == "AI")
+            {
+                paddle2.position.Y = ball.position.Y - ball.height;
+            }
             if(ball.hitbox.Intersects(paddle1.hitbox) && ball.velocity.X < 0 && ball.lastHit > 100)
             {
-                ball.speed += 0.1f;
+                ball.speed += 0.5f;
                 ball.lastHit = 0;
                 ball.velocity.X *= -1;
                 //ball.velocity = Hit(ball.position, ball.width,ball.height,paddle1.position,paddle1.width,paddle1.height);
@@ -108,7 +116,7 @@ namespace PongGongOnlineDeluxe
 
             if (ball.hitbox.Intersects(paddle2.hitbox) && ball.velocity.X > 0 && ball.lastHit > 100)
             {
-                ball.speed += 0.1f;
+                ball.speed += 0.5f;
                 ball.lastHit = 0;
                 ball.velocity.X *= -1;
                 //ball.velocity = Hit(ball.position, ball.width, ball.height, paddle2.position, paddle2.width, paddle2.height);
