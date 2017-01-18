@@ -98,6 +98,7 @@ namespace PongGongOnlineDeluxe
                 }
             }
             #endregion
+            #region Pseudo-AI
             if(paddle1.player == "AI")
             {
                 paddle1.position.Y = ball.position.Y - ball.height;
@@ -106,6 +107,7 @@ namespace PongGongOnlineDeluxe
             {
                 paddle2.position.Y = ball.position.Y - ball.height;
             }
+            #endregion
             if(ball.hitbox.Intersects(paddle1.hitbox) && ball.velocity.X < 0 && ball.lastHit > 100)
             {
                 ball.speed += 0.5f;
