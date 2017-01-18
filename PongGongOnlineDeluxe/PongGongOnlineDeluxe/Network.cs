@@ -47,7 +47,7 @@ NetPeerConfiguration netconfig;
 
             client = new NetClient(netconfig);
             // lägga till exception hantering
-            client.Start();
+           
                        
         }
 
@@ -59,8 +59,13 @@ NetPeerConfiguration netconfig;
             {
                 server = new NetServer(netconfig);
                 server.Start();
-
-                return true;
+                if (server.Status == NetPeerStatus.Running)
+                {
+                    return true;
+                }
+                else
+                    return false;                   
+               
 
             }
             catch(Exception e)
@@ -75,6 +80,17 @@ NetPeerConfiguration netconfig;
             return false;
         }
       
+       public bool startClient()
+        {
+            client.Start();
+
+            while(client.Status != NetPeerStatus.Running)
+            {
+               
+            }
+            return true;
+            
+        }
 
         bool stopClient()
         {
@@ -85,9 +101,18 @@ NetPeerConfiguration netconfig;
 
             try
             {
-                
+
                 client.Connect(host: hostIp, port: 1337);
-                return true;
+
+                while(client.ConnectionStatus != NetConnectionStatus.Connected)
+                {
+                    if(client.ConnectionsCount > 0)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+
 
             }
             catch(Exception e)

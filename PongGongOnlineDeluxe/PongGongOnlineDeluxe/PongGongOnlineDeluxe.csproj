@@ -46,6 +46,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Ball.cs" />
+    <Compile Include="Client.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Network.cs" />
     <Compile Include="Paddle.cs" />

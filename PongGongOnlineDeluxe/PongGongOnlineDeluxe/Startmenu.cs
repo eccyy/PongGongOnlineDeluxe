@@ -26,10 +26,20 @@ namespace PongGongOnlineDeluxe
 
                 try
                 {
+                    // gör ett nytt objekt och server
                     network = new Network(tbxServerName.Text);
-                    network.startServer();
+
+                    if (network.startServer() == true)
+                    {
+                        MessageBox.Show("success");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Server start failed");
+                    }
+                       
                    
-                    MessageBox.Show("success");
+                  
                 }
                 catch(Exception connectException)
                 {
@@ -61,7 +71,11 @@ namespace PongGongOnlineDeluxe
 
         private void button1_Click(object sender, EventArgs e)
         {
-            join();
+            if (network.startClient() == true)
+            {
+                join();
+            }
+            
         }
 
         private void tbxStartTetris_Click(object sender, EventArgs e)
@@ -72,11 +86,9 @@ namespace PongGongOnlineDeluxe
 
         private void btnSendMessage_Click(object sender, EventArgs e)
         {
-            network.sendString("dadido");
-            while(network.text == null)
-            {
 
-            }
+            network.sendString("dadido");
+            
             MessageBox.Show("message is " + network.text);
 
         }
