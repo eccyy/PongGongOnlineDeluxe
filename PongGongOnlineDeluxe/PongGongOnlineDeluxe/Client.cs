@@ -69,16 +69,24 @@ namespace PongGongOnlineDeluxe
             }            
         }
 
-        public bool sendMessage(string message)
+        public bool sendMessage<T>(List<T> messageToBeSent)
         {
 
             var messageToSend = client.CreateMessage();
-            messageToSend.Write(message);
+            messageToSend.Write("TEMPORARYMAKEGENERRIC");
+           
 
             if (client.SendMessage(messageToSend, NetDeliveryMethod.ReliableOrdered) == NetSendResult.Sent)            
                 return true;
             else                               
                 return false;
+
+            return false;
+        }
+
+        public bool getMessage()
+        {
+            return false;
         }
 
 
