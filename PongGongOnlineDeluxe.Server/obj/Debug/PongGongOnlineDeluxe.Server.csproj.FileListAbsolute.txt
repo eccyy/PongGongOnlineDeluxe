@@ -1,0 +1,10 @@
+C:\Users\Lucas.haglund\Source\Repos\Pingpong\PongGongOnlineDeluxe\PongGongOnlineDeluxe.Server\bin\Debug\PongGongOnlineDeluxe.Server.exe
+C:\Users\Lucas.haglund\Source\Repos\Pingpong\PongGongOnlineDeluxe\PongGongOnlineDeluxe.Server\bin\Debug\PongGongOnlineDeluxe.Server.pdb
+C:\Users\Lucas.haglund\Source\Repos\Pingpong\PongGongOnlineDeluxe\PongGongOnlineDeluxe.Server\bin\Debug\Lidgren.Network.dll
+C:\Users\Lucas.haglund\Source\Repos\Pingpong\PongGongOnlineDeluxe\PongGongOnlineDeluxe.Server\bin\Debug\PongGongOnlineDeluxe.Library.dll
+C:\Users\Lucas.haglund\Source\Repos\Pingpong\PongGongOnlineDeluxe\PongGongOnlineDeluxe.Server\bin\Debug\PongGongOnlineDeluxe.Library.pdb
+C:\Users\Lucas.haglund\Source\Repos\Pingpong\PongGongOnlineDeluxe\PongGongOnlineDeluxe.Server\obj\Debug\PongGongOnlineDeluxe.Server.csprojResolveAssemblyReference.cache
+C:\Users\Lucas.haglund\Source\Repos\Pingpong\PongGongOnlineDeluxe\PongGongOnlineDeluxe.Server\obj\Debug\PongGongOnlineDeluxe.Server.exe
+C:\Users\Lucas.haglund\Source\Repos\Pingpong\PongGongOnlineDeluxe\PongGongOnlineDeluxe.Server\obj\Debug\PongGongOnlineDeluxe.Server.pdb
+C:\Users\jonatan.leanderz\Downloads\PongGongOnlineDeluxe\PongGongOnlineDeluxe.Server\obj\Debug\PongGongOnlineDeluxe.Server.exe
+C:\Users\jonatan.leanderz\Downloads\PongGongOnlineDeluxe\PongGongOnlineDeluxe.Server\obj\Debug\PongGongOnlineDeluxe.Server.pdb
