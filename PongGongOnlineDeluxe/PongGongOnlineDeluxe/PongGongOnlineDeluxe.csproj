@@ -48,7 +48,9 @@
     <Compile Include="Ball.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="InputManager.cs" />
     <Compile Include="Network.cs" />
+    <Compile Include="NetworkConnection.cs" />
     <Compile Include="Paddle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,6 +89,12 @@
     <EmbeddedResource Include="Startmenu.resx">
       <DependentUpon>Startmenu.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PongGongOnlineDeluxe.Library2\PongGongOnlineDeluxe.Library2.csproj">
+      <Project>{9befeabd-789b-4fd3-a5a4-f558e9cbade4}</Project>
+      <Name>PongGongOnlineDeluxe.Library2</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

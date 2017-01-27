@@ -18,12 +18,16 @@ namespace PongGongOnlineDeluxe
         SpriteFont font;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        private NetworkConnection _networkConnection;
+        private InputManager inputManager;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferHeight = 500;
             graphics.PreferredBackBufferWidth = 500;
+            _networkConnection = new NetworkConnection();
+            inputManager = new InputManager(_networkConnection);
             Content.RootDirectory = "Content";
         }
 
@@ -142,6 +146,10 @@ namespace PongGongOnlineDeluxe
             paddle1.Update();
             paddle2.Update();
             ball.Update();
+
+            _networkConnection.Update();
+            inputManager.Update(gameTime.ElapsedGameTime.Milliseconds);
+
             base.Update(gameTime);
         }
 
@@ -155,6 +163,13 @@ namespace PongGongOnlineDeluxe
             spriteBatch.Draw(paddle2.sprite, new Rectangle((int)paddle2.position.X, (int)paddle2.position.Y, paddle2.width, paddle2.height), Color.Black);
             spriteBatch.DrawString(font, paddle1Score.ToString(), new Vector2(60, 0),Color.Black);
             spriteBatch.DrawString(font, paddle2Score.ToString(), new Vector2(440-font.MeasureString(paddle2Score.ToString()).X, 0), Color.Black);
+            if (_networkConnection.Active)
+            {
+                foreach (var player in _networkConnection.Players)
+                {
+                    spriteBatch.Draw(sprPaddle, new Rectangle(player.XPosition, player.YPosition, 20, 40), Color.White);
+                }
+            }
             spriteBatch.End();
             base.Draw(gameTime);
         }
