@@ -49,8 +49,8 @@ namespace PongGongOnlineDeluxe
             sprPaddle = Content.Load<Texture2D>("paddle");
             font = Content.Load<SpriteFont>("font");
             ball.BallConstructor(sprBall, new Vector2(250, 250), 25, 25, 4, RandomizeDirection(rng.Next(1,5)));
-            paddle1.PaddleConstructor(sprPaddle, new Vector2(20, 150), 10, 100, 5, "Player 1");
-            paddle2.PaddleConstructor(sprPaddle, new Vector2(470, 150), 10, 100, 5, "AI");
+            paddle1.PaddleConstructor(sprPaddle, new Vector2(20, 150), 15, 100, 5, "Player 1");
+            paddle2.PaddleConstructor(sprPaddle, new Vector2(465, 150), 15, 100, 5, "AI");
         }
 
 
@@ -103,11 +103,11 @@ namespace PongGongOnlineDeluxe
             }
             #endregion
             #region Pseudo-AI
-            if(paddle1.player == "AI")
+            if(paddle1.player == "AI" && paddle1.position.Y > 0 && paddle1.position.Y < 500-paddle1.height)
             {
                 paddle1.position.Y = ball.position.Y - ball.height;
             }
-            if(paddle2.player == "AI")
+            if(paddle2.player == "AI" && ball.position.Y > 0 + ball.height && ball.position.Y < 500 - paddle2.height)
             {
                 paddle2.position.Y = ball.position.Y - ball.height;
             }
@@ -142,6 +142,7 @@ namespace PongGongOnlineDeluxe
                 ball.velocity = RandomizeDirection(rng.Next(1, 5));
                 paddle1Score++;
             }
+
             paddle1.Update();
             paddle2.Update();
             ball.Update();
