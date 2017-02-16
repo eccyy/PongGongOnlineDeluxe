@@ -15,8 +15,7 @@ namespace PongGongOnlineDeluxe
 
         NetClient client;
         NetPeerConfiguration netconfig;
-        NetIncomingMessage msgRecieve;
-        NetOutgoingMessage msgSend;
+     
 
         NetConnection connection;
 
@@ -24,7 +23,7 @@ namespace PongGongOnlineDeluxe
 
         public Client()
         {
-            netconfig = new NetPeerConfiguration("abc");
+            netconfig = new NetPeerConfiguration("IdentifierSakFörAttKlienternaSkaKopplas");
             netconfig.Port = 1337;
             netconfig.EnableMessageType(NetIncomingMessageType.Data);
             netconfig.EnableMessageType(NetIncomingMessageType.ConnectionApproval);
@@ -69,23 +68,31 @@ namespace PongGongOnlineDeluxe
             }            
         }
 
-        public bool sendMessage<T>(List<T> messageToBeSent)
+        public bool sendMessage<T>(T message)
         {
+            /*
+            NetBuffer adg = new NetBuffer();
 
+            var msg = message;
+            
             var messageToSend = client.CreateMessage();
-            messageToSend.Write("TEMPORARYMAKEGENERRIC");
+            messageToSend.Write();
            
 
             if (client.SendMessage(messageToSend, NetDeliveryMethod.ReliableOrdered) == NetSendResult.Sent)            
                 return true;
             else                               
                 return false;
-
+                */
             return false;
+
         }
 
         public bool getMessage()
         {
+
+            string a = "abs";
+            sendMessage<string>(a);
             return false;
         }
 

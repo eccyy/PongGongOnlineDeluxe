@@ -54,6 +54,8 @@ namespace PongGongOnlineDeluxe.Server2
         private void Data(NetIncomingMessage inc)
         {
             var packetType = (PacketType)inc.ReadByte();
+            
+            
 
             switch (packetType)
             {
